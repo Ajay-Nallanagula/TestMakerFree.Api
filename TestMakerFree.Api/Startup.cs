@@ -24,6 +24,11 @@ namespace TestMakerFree.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddCors(options => {
+                options.AddPolicy("AllowSpecificPolicy",
+                    build => build.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+                });
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,7 +38,7 @@ namespace TestMakerFree.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors("AllowSpecificPolicy");
             app.UseMvc();
         }
     }
