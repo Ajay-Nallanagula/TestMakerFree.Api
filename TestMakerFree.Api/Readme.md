@@ -90,3 +90,42 @@ Step 3 : Inside Startup --> configure -->below add.mvc
 app.UseSwaggerUI(swagUI => {
                 swagUI.SwaggerEndpoint("/swagger/v1/swagger.json","TestMakerFree.ApiV1");
             });
+
+
+
+CI/CD : Beginner's tutorial
+https://www.digitalocean.com/community/tutorials/an-introduction-to-continuous-integration-delivery-and-deployment
+CI : Continous Integration
+a) Developer works in local branch, builds a userstory/requirement day by day , rather than integrating the changes at once after 15-20 days, 
+   why not integrate the change daily, catch the limitations of existing code base early, conflicts of his own code can be fixed on daily basis
+   which save time, Integration beacomes seamless
+
+   Assume if CI is done manually without an automated process:
+   a) Adhering to code standards is a pain point(Manually Can be done because an idea not to introduce new bugs)
+   b) Does Unit Tests been covered by the developer, most cases manually no, coverage improvement etc
+   
+   To avoid this mess, we can benefit from the robustness of CI which is built to handle Test suites, 
+   When a developer merges code into the main repository, automated processes kick off a build of the new code.
+   Afterwards, test suites are run against the new build to check whether any integration problems were introduced.
+   If either the build or the test phase fails, the team is alerted so that they can work to fix the build.
+
+    When a developer merges code into the main repository, automated processes kick off a build of the new code. 
+	Afterwards, test suites are run against the new build to check whether any integration problems were
+	introduced. If either the build or the test phase fails, the team is alerted so that they can work to 
+	fix the build.
+
+
+VSTS Vs GitHub: 
+https://www.upguard.com/articles/microsoft-visual-studio-team-services-vs-github
+1. Microsoft VSTS is geared for closed source projects while GitHub is focused on open source
+2. VSTS is essentially an Azure cloud-hosted version of Team Foundation Server
+Benefits of VSTS:
+VSTS offers extended features for supporting software team collaboration and continuous delivery/integration (CI/CD) such as Git-based source control repositories, project tracking tools, telemetry services, a streamlined development IDE, and more
+capabilities include Microsoft Office component support (e.g., Excel and Project) as well as cloud-specific development services such as cloud build, cloud load testing, and Application Insights: a machine learning-based tool for detecting, diagnosing, and remediating web application/service problems and performance issues
+
+
+Another major advantage of Unit Testing is ,(execution of UT is very fast) during CI/CD pipe line, your e2e tests/Automated tests/Acceptance test can focus on major core functionalites 
+or atleast some burden can be shelved. AT/IT/AutoT takes time for execution
+
+If CI/CD pipeline is taking more time for build deploy, that has to be treated as major problem.
+End-to-End tests are called as automated testing.
