@@ -69,3 +69,24 @@ Advantages of typescript ?
 
 Enable Swagger :
 https://www.c-sharpcorner.com/article/enable-swagger-in-your-net-core-2-0-application-step-by-step-guide/ 
+
+Swashbuckle vs swagger
+https://stackoverflow.com/questions/43441683/what-is-swagger-swashbuckle-and-swashbuckle-ui
+http://localhost:50744/swagger/index.html
+
+Step1 : Install-Package Swashbuckle.AspNetCore
+Step 2 : Inside Startup --> ConfigureServices
+services.AddSwaggerGen(swagger =>
+            {
+                swagger.SwaggerDoc("v1", new Info {
+                    Version = "v1",
+                    Title = "My API",
+                    Description = ".net core api with swagger support",
+                    TermsOfService = "None",
+                    Contact = new Contact() { Name = "Ajay Nallanagula", Email = "kumarnajay9@gmail.com", Url = "www.google.com" }
+                });
+
+Step 3 : Inside Startup --> configure -->below add.mvc
+app.UseSwaggerUI(swagUI => {
+                swagUI.SwaggerEndpoint("/swagger/v1/swagger.json","TestMakerFree.ApiV1");
+            });
